@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class UserDTO {
     @JsonProperty("id")
-    private Integer id;
+    private Long id;
 
     @JsonProperty("firstname")
     private String firstName;
@@ -22,7 +22,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(Integer id, String firstName, String lastName, String email, Boolean isActive) {
+    public UserDTO(Long id, String firstName, String lastName, String email, Boolean isActive) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,11 +31,11 @@ public class UserDTO {
     }
 
     // Getters and Setters
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
