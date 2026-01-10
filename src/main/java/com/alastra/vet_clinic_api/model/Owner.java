@@ -1,14 +1,13 @@
 package com.alastra.vet_clinic_api.model;
 
-import jakarta.persistence.*;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import java.util.ArrayList;
-import java.util.List;
+import jakarta.persistence.*;
+
+import java.time.LocalDate;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "owners")
+public class Owner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,32 +30,33 @@ public class User {
     @JsonProperty("password")
     private String password;
 
-    @Column(name = "isactive", nullable = false)
-    @JsonProperty("isactive")
-    private Boolean isActive;
+    @Column(name = "address")
+    @JsonProperty("address")
+    private String address;
 
-    // Relationships
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonIgnore
-    private List<UserRole> userRole = new ArrayList<>();
+    @Column(name = "phone")
+    @JsonProperty("phone")
+    private String phone;
 
-//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Task> tasks = new ArrayList<>();
+    @Column(name = "createdat")
+    @JsonProperty("createdat")
+    private LocalDate createdAt;
 
-    // Constructors
-    public User() {
-    }
+    //constructors
+    public Owner() {}
 
-    public User(String firstName, String lastName, String email, String password, Boolean isActive) {
+    public Owner(String firstName, String lastName, String email, String password,
+                String address, String phone, LocalDate createdAt) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
-        this.isActive = isActive;
+        this.address = address;
+        this.phone = phone;
+        this.createdAt = createdAt;
     }
 
-    // Getters and Setters
+    //getter and setters
     public Long getId() {
         return id;
     }
@@ -97,29 +97,27 @@ public class User {
         this.password = password;
     }
 
-    public Boolean getIsActive() {
-        return isActive;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    // Relationship getters and setters
-    public List<UserRole> getUserRole() {
-        return userRole;
+    public String getAddress() {
+        return address;
     }
 
-    public void setUserRole(List<UserRole> userRole) {
-        this.userRole = userRole;
+    public void setAddress(String address) {
+        this.address = address;
     }
-//
-//    public List<Task> getTasks() {
-//        return tasks;
-//    }
-//
-//    public void setTasks(List<Task> tasks) {
-//        this.tasks = tasks;
-//    }
+
+    public LocalDate getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
 }
-
