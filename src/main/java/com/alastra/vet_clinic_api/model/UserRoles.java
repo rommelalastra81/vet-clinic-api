@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "userroles")
-public class UserRole {
+public class UserRoles {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,17 +17,17 @@ public class UserRole {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userid" , nullable = false)
     @JsonIgnore
-    private User user;
+    private Users user;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleid", nullable = false)
     @JsonIgnore
-    private Role role;
+    private Roles role;
 
     //constructors
-    public UserRole() {}
+    public UserRoles() {}
 
-    public UserRole(User user, Role role ) {
+    public UserRoles(Users user, Roles role ) {
         this.user = user;
         this.role = role;
     }
@@ -41,19 +41,19 @@ public class UserRole {
         this.id = id;
     }
 
-    public User getUser() {
+    public Users getUser() {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Users user) {
         this.user = user;
     }
 
-    public Role getRole() {
+    public Roles getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Roles role) {
         this.role = role;
     }
 

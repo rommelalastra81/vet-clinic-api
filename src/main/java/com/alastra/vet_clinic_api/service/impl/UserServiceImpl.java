@@ -2,9 +2,8 @@ package com.alastra.vet_clinic_api.service.impl;
 
 import com.alastra.vet_clinic_api.dto.CreateUserRequest;
 import com.alastra.vet_clinic_api.dto.UserDTO;
-import com.alastra.vet_clinic_api.model.User;
+import com.alastra.vet_clinic_api.model.Users;
 import com.alastra.vet_clinic_api.repository.UserRepository;
-import com.alastra.vet_clinic_api.service.LoginService;
 import com.alastra.vet_clinic_api.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,18 +26,18 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("Email already exists: " + request.getEmail());
         }
 
-        User user = new User();
+        Users user = new Users();
         user.setFirstName(request.getFirstName());
         user.setLastName(request.getLastName());
         user.setEmail(request.getEmail());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
         user.setIsActive(true);
 
-        User savedUser = userRepository.save(user);
+        Users savedUser = userRepository.save(user);
         return convertToDTO(savedUser);
     }
 
-    private UserDTO convertToDTO(User user) {
+    private UserDTO convertToDTO(Users user) {
         return new UserDTO(
                 user.getId(),
                 user.getFirstName(),

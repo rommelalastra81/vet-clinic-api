@@ -9,7 +9,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "roles")
-public class Role {
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("id")
@@ -19,14 +19,15 @@ public class Role {
     @JsonProperty("name")
     private String name;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<UserRole> userRole = new ArrayList<>();
+    private List<UserRoles> userRole = new ArrayList<>();
 
-    //constructors
-    public Role() {}
+    // constructors
+    public Roles() {
+    }
 
-    public Role(String name) {
+    public Roles(String name) {
         this.name = name;
 
     }
@@ -49,11 +50,11 @@ public class Role {
     }
 
     // Relationship getters and setters
-    public List<UserRole> getUserRole() {
+    public List<UserRoles> getUserRole() {
         return userRole;
     }
 
-    public void setUserRole(List<UserRole> userRole) {
+    public void setUserRole(List<UserRoles> userRole) {
         this.userRole = userRole;
     }
 }

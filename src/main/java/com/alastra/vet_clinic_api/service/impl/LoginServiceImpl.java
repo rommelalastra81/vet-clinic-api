@@ -5,7 +5,7 @@ import com.alastra.vet_clinic_api.repository.UserRepository;
 import com.alastra.vet_clinic_api.util.JwtUtil;
 import com.alastra.vet_clinic_api.dto.LoginRequest;
 import com.alastra.vet_clinic_api.dto.LoginResponse;
-import com.alastra.vet_clinic_api.model.User;
+import com.alastra.vet_clinic_api.model.Users;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,7 +26,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public LoginResponse login(LoginRequest request) {
         // Find user by email
-        User user = userRepository.findByEmail(request.getEmail())
+        Users user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
 
         // Verify password
