@@ -42,6 +42,9 @@ public class Owners {
     @JsonProperty("createdat")
     private LocalDate createdAt;
 
+    //one to many fields
+    //pets
+
     //constructors
     public Owners() {}
 
@@ -120,4 +123,7 @@ public class Owners {
     public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
+
+    //relationship getters and setters
+    //pets
 }
