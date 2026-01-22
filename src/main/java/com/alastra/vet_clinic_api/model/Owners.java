@@ -1,9 +1,12 @@
 package com.alastra.vet_clinic_api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "owners")
@@ -43,7 +46,10 @@ public class Owners {
     private LocalDate createdAt;
 
     //one to many fields
-    //pets
+    // Relationships
+    @OneToMany(mappedBy = "owners", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Pets> pets = new ArrayList<>();
 
     //constructors
     public Owners() {}
@@ -125,5 +131,11 @@ public class Owners {
     }
 
     //relationship getters and setters
-    //pets
+    public List<Pets> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pets> pets) {
+        this.pets = pets;
+    }
 }

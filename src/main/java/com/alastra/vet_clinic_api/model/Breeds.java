@@ -4,6 +4,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "species")
 public class Breeds {
@@ -17,6 +20,13 @@ public class Breeds {
     @JsonProperty("name")
     private String name;
 
+    //one to many
+    //pets
+    @OneToMany(mappedBy = "breeds", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Pets> pets = new ArrayList<>();
+
+    //many to one
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "speciesid", nullable = false)
     @JsonIgnore
@@ -46,6 +56,15 @@ public class Breeds {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    //relationship getters and setters
+    public List<Pets> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pets> pets) {
+        this.pets = pets;
     }
 
     // Helper methods for JSON output

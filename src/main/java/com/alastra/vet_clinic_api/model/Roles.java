@@ -19,7 +19,8 @@ public class Roles {
     @JsonProperty("name")
     private String name;
 
-    @OneToMany(mappedBy = "role", cascade = CascadeType.ALL, orphanRemoval = true)
+    //relationships
+    @OneToMany(mappedBy = "roles", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<UserRoles> userRole = new ArrayList<>();
 
@@ -29,7 +30,6 @@ public class Roles {
 
     public Roles(String name) {
         this.name = name;
-
     }
 
     // Getters and Setters

@@ -36,14 +36,22 @@ public class Users {
     private Boolean isActive;
 
     // Relationships
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<UserRoles> userRole = new ArrayList<>();
 
-    // @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval =
-    // true)
-    // @JsonIgnore
-    // private List<Task> tasks = new ArrayList<>();
+//     uncomment after these models created
+//     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+//     @JsonIgnore
+//     private List<Appointments> appointments = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Visits> visits = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Vaccinations> vaccinations = new ArrayList<>();
 
     // Constructors
     public Users() {
@@ -114,12 +122,31 @@ public class Users {
     public void setUserRole(List<UserRoles> userRole) {
         this.userRole = userRole;
     }
-    //
-    // public List<Task> getTasks() {
-    // return tasks;
+
+    // uncomment after created these models
+    // public List<Appointments> getAppointments() {
+    // return appointments;
     // }
     //
-    // public void setTasks(List<Task> tasks) {
-    // this.tasks = tasks;
+    // public void setAppointments(List<Appointments> appointments) {
+    // this.appointments = appointments;
+    // }
+
+    //
+    // public List<Visits> getVisits() {
+    // return visits;
+    // }
+    //
+    // public void setVisits(List<Visits> visits) {
+    // this.visits = visits;
+    // }
+
+    //
+    // public List<Vaccinations> getVaccinations() {
+    // return vaccinations;
+    // }
+    //
+    // public void setVaccinations(List<Vaccinations> vaccinations) {
+    // this.vaccinations = vaccinations;
     // }
 }

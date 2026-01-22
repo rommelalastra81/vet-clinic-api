@@ -47,6 +47,28 @@ public class Pets {
     @JsonIgnore
     private Breeds breeds;
 
+    //one to many relationships
+    //appointments
+    //visits
+    //medicalhistory
+    //vaccinations
+    //     uncomment after these models created
+//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Appointments> appointments = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Visits> visits = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<MedicalHistory> medicalHistory = new ArrayList<>();
+//
+//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JsonIgnore
+//    private List<Vaccinations> vaccinations = new ArrayList<>();
+
     //constructors
     public Pets() {
     }
@@ -98,6 +120,47 @@ public class Pets {
     public void setColor(String color) {
         this.color = color;
     }
+
+    //relationship getter and setter
+    //appointments
+    //visits
+    //medical histories
+    //vaccinations
+    // uncomment after created these models
+    // public List<Appointments> getAppointments() {
+    // return appointments;
+    // }
+    //
+    // public void setAppointments(List<Appointments> appointments) {
+    // this.appointments = appointments;
+    // }
+
+    //
+    // public List<Visits> getVisits() {
+    // return visits;
+    // }
+    //
+    // public void setVisits(List<Visits> visits) {
+    // this.visits = visits;
+    // }
+
+    //
+    // public List<MedicalHistories> getMedicalHistories() {
+    // return medicalHistories;
+    // }
+    //
+    // public void setMedicalHistories(List<MedicalHistories> medicalHistories) {
+    // this.medicalHistories = medicalHistories;
+    // }
+
+    //
+    // public List<Vaccinations> getVaccinations() {
+    // return vaccinations;
+    // }
+    //
+    // public void setVaccinations(List<Vaccinations> vaccinations) {
+    // this.vaccinations = vaccinations;
+    // }
 
     // Helper methods for JSON output
     @JsonProperty("ownerid")
