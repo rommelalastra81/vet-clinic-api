@@ -13,26 +13,27 @@ public class UserRoles {
     @JsonProperty("id")
     private Long id;
 
-    //many to one
+    // many to one
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userid" , nullable = false)
+    @JoinColumn(name = "userid", nullable = false)
     @JsonIgnore
-    private Users user;
+    private Users users;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "roleid", nullable = false)
     @JsonIgnore
-    private Roles role;
+    private Roles roles;
 
-    //constructors
-    public UserRoles() {}
-
-    public UserRoles(Users user, Roles role ) {
-        this.user = user;
-        this.role = role;
+    // constructors
+    public UserRoles() {
     }
 
-    //getter and setter
+    public UserRoles(Users users, Roles roles) {
+        this.users = users;
+        this.roles = roles;
+    }
+
+    // getter and setter
     public Long getId() {
         return id;
     }
@@ -41,31 +42,31 @@ public class UserRoles {
         this.id = id;
     }
 
-    public Users getUser() {
-        return user;
+    public Users getUsers() {
+        return users;
     }
 
-    public void setUser(Users user) {
-        this.user = user;
+    public void setUsers(Users users) {
+        this.users = users;
     }
 
-    public Roles getRole() {
-        return role;
+    public Roles getRoles() {
+        return roles;
     }
 
-    public void setRole(Roles role) {
-        this.role = role;
+    public void setRoles(Roles roles) {
+        this.roles = roles;
     }
 
     // Helper methods for JSON output
     @JsonProperty("userid")
     public Long getUserId() {
-        return user != null ? user.getId() : null;
+        return users != null ? users.getId() : null;
     }
 
     @JsonProperty("roleid")
     public Long getRoleId() {
-        return role != null ? role.getId() : null;
+        return roles != null ? roles.getId() : null;
     }
 
 }

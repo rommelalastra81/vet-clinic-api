@@ -19,10 +19,10 @@ public class Roles {
     @JsonProperty("name")
     private String name;
 
-    //relationships
+    // relationships
     @OneToMany(mappedBy = "roles", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<UserRoles> userRole = new ArrayList<>();
+    private List<UserRoles> userRoles = new ArrayList<>();
 
     // constructors
     public Roles() {
@@ -51,10 +51,10 @@ public class Roles {
 
     // Relationship getters and setters
     public List<UserRoles> getUserRole() {
-        return userRole;
+        return userRoles;
     }
 
-    public void setUserRole(List<UserRoles> userRole) {
-        this.userRole = userRole;
+    public void setUserRole(List<UserRoles> userRoles) {
+        this.userRoles = userRoles;
     }
 }

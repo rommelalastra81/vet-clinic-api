@@ -38,20 +38,23 @@ public class Users {
     // Relationships
     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
-    private List<UserRoles> userRole = new ArrayList<>();
+    private List<UserRoles> userRoles = new ArrayList<>();
 
-//     uncomment after these models created
-//     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-//     @JsonIgnore
-//     private List<Appointments> appointments = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Visits> visits = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Vaccinations> vaccinations = new ArrayList<>();
+    // uncomment after these models created
+    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+    // true)
+    // @JsonIgnore
+    // private List<Appointments> appointments = new ArrayList<>();
+    //
+    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+    // true)
+    // @JsonIgnore
+    // private List<Visits> visits = new ArrayList<>();
+    //
+    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+    // true)
+    // @JsonIgnore
+    // private List<Vaccinations> vaccinations = new ArrayList<>();
 
     // Constructors
     public Users() {
@@ -116,11 +119,11 @@ public class Users {
 
     // Relationship getters and setters
     public List<UserRoles> getUserRole() {
-        return userRole;
+        return userRoles;
     }
 
-    public void setUserRole(List<UserRoles> userRole) {
-        this.userRole = userRole;
+    public void setUserRole(List<UserRoles> userRoles) {
+        this.userRoles = userRoles;
     }
 
     // uncomment after created these models
