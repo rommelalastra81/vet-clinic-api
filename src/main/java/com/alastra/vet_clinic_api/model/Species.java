@@ -20,7 +20,7 @@ public class Species {
     @JsonProperty("name")
     private String name;
 
-    //one to many relationships
+    //one-to-many relationships
     //pets
     //breeds
     //vaccine

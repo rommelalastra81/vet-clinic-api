@@ -47,7 +47,7 @@ public class Pets {
     @JsonIgnore
     private Breeds breeds;
 
-    //one to many relationships
+    //one-to-many relationships
     //appointments
     //visits
     //medicalhistory
