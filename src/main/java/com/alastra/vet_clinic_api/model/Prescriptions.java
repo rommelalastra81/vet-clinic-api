@@ -32,7 +32,7 @@ public class Prescriptions {
     private Visits visits;
 
     //one-to-many relationship
-    @OneToMany(mappedBy = "prescriptionitems", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "prescriptions", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<PrescriptionItems> prescriptionItems = new ArrayList<>();
 
