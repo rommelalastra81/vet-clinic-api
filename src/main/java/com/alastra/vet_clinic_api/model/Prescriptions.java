@@ -31,6 +31,11 @@ public class Prescriptions {
     @JsonIgnore
     private Visits visits;
 
+    //one-to-many relationship
+    @OneToMany(mappedBy = "prescriptionitems", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<PrescriptionItems> prescriptionItems = new ArrayList<>();
+
     //constructors
     public Prescriptions() {}
 
@@ -62,6 +67,15 @@ public class Prescriptions {
 
     public void setNotes(String notes) {
         this.notes = notes;
+    }
+
+    // Relationship getters and setters
+    public List<PrescriptionItems> getPrescriptionItems() {
+        return prescriptionItems;
+    }
+
+    public void setPrescriptionItems(List<PrescriptionItems> prescriptionItems) {
+        this.prescriptionItems  =  prescriptionItems;
     }
 
     // Helper methods for JSON output
