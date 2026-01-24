@@ -45,7 +45,7 @@ public class Visits {
     private Pets pets;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "appointmentid", nullable = true)
+    @JoinColumn(name = "appointmentid")
     @JsonIgnore
     private Appointments appointments;
 

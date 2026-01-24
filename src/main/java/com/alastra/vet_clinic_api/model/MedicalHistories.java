@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,9 +41,9 @@ public class MedicalHistories {
 
     public MedicalHistories() {}
 
-    public MedicalHistories(String condition, String notes LocalDate startDate, LocalTime endDate) {
+    public MedicalHistories(String condition, String notes, LocalDate startDate, LocalDate endDate) {
         this.condition = condition;
-        this.appointmentTinotesme = notes;
+        this.notes = notes;
         this.startDate = startDate;
         this.endDate = endDate;
     }
