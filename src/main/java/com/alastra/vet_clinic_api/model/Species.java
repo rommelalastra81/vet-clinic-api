@@ -32,10 +32,9 @@ public class Species {
     @JsonIgnore
     private List<Breeds> breeds = new ArrayList<>();
 
-    //uncomment after these models created
-    //@OneToMany(mappedBy = "species", cascade = CascadeType.ALL, orphanRemoval = true)
-    //@JsonIgnore
-    //private List<Vaccinations> vaccinations = new ArrayList<>();
+    @OneToMany(mappedBy = "species", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Vaccines> vaccines = new ArrayList<>();
 
     //constructors
     public Species() {
@@ -85,12 +84,11 @@ public class Species {
      this.breeds = breeds;
      }
 
-    // uncomment after created these models
-    // public List<Vaccinations> getVaccinations() {
-    // return vaccinations;
-    // }
-    //
-    // public void setVaccinations(List<Vaccinations> vaccinations) {
-    // this.vaccinations = vaccinations;
-    // }
+     public List<Vaccines> getVaccines() {
+     return vaccines;
+     }
+
+     public void setVaccines(List<Vaccines> vaccines) {
+     this.vaccines = vaccines;
+     }
 }
