@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "pets")
@@ -53,21 +55,21 @@ public class Pets {
     //medicalhistory
     //vaccinations
     //     uncomment after these models created
-//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Appointments> appointments = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Visits> visits = new ArrayList<>();
-//
+    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Appointments> appointments = new ArrayList<>();
+
+    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Visits> visits = new ArrayList<>();
+
 //    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
 //    @JsonIgnore
 //    private List<MedicalHistory> medicalHistory = new ArrayList<>();
-//
-//    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
-//    @JsonIgnore
-//    private List<Vaccinations> vaccinations = new ArrayList<>();
+
+    @OneToMany(mappedBy = "pets", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore
+    private List<Vaccinations> vaccinations = new ArrayList<>();
 
     //constructors
     public Pets() {
@@ -127,40 +129,40 @@ public class Pets {
     //medical histories
     //vaccinations
     // uncomment after created these models
-    // public List<Appointments> getAppointments() {
-    // return appointments;
-    // }
-    //
-    // public void setAppointments(List<Appointments> appointments) {
-    // this.appointments = appointments;
-    // }
+     public List<Appointments> getAppointments() {
+     return appointments;
+     }
 
-    //
-    // public List<Visits> getVisits() {
-    // return visits;
-    // }
-    //
-    // public void setVisits(List<Visits> visits) {
-    // this.visits = visits;
-    // }
+     public void setAppointments(List<Appointments> appointments) {
+     this.appointments = appointments;
+     }
 
-    //
-    // public List<MedicalHistories> getMedicalHistories() {
-    // return medicalHistories;
-    // }
-    //
-    // public void setMedicalHistories(List<MedicalHistories> medicalHistories) {
-    // this.medicalHistories = medicalHistories;
-    // }
 
-    //
-    // public List<Vaccinations> getVaccinations() {
-    // return vaccinations;
-    // }
-    //
-    // public void setVaccinations(List<Vaccinations> vaccinations) {
-    // this.vaccinations = vaccinations;
-    // }
+     public List<Visits> getVisits() {
+     return visits;
+     }
+
+     public void setVisits(List<Visits> visits) {
+     this.visits = visits;
+     }
+
+
+//     public List<MedicalHistories> getMedicalHistories() {
+//     return medicalHistories;
+//     }
+//
+//     public void setMedicalHistories(List<MedicalHistories> medicalHistories) {
+//     this.medicalHistories = medicalHistories;
+//     }
+
+
+     public List<Vaccinations> getVaccinations() {
+     return vaccinations;
+     }
+
+     public void setVaccinations(List<Vaccinations> vaccinations) {
+     this.vaccinations = vaccinations;
+     }
 
     // Helper methods for JSON output
     @JsonProperty("ownerid")

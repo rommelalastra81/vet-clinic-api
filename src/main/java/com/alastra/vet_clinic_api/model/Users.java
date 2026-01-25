@@ -41,20 +41,20 @@ public class Users {
     private List<UserRoles> userRoles = new ArrayList<>();
 
     // uncomment after these models created
-    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
-    // true)
-    // @JsonIgnore
-    // private List<Appointments> appointments = new ArrayList<>();
-    //
-    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
-    // true)
-    // @JsonIgnore
-    // private List<Visits> visits = new ArrayList<>();
-    //
-    // @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
-    // true)
-    // @JsonIgnore
-    // private List<Vaccinations> vaccinations = new ArrayList<>();
+     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+     true)
+     @JsonIgnore
+     private List<Appointments> appointments = new ArrayList<>();
+
+     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+     true)
+     @JsonIgnore
+     private List<Visits> visits = new ArrayList<>();
+
+     @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval =
+     true)
+     @JsonIgnore
+     private List<Vaccinations> vaccinations = new ArrayList<>();
 
     // Constructors
     public Users() {
@@ -126,30 +126,27 @@ public class Users {
         this.userRoles = userRoles;
     }
 
-    // uncomment after created these models
-    // public List<Appointments> getAppointments() {
-    // return appointments;
-    // }
-    //
-    // public void setAppointments(List<Appointments> appointments) {
-    // this.appointments = appointments;
-    // }
+     public List<Appointments> getAppointments() {
+     return appointments;
+     }
 
-    //
-    // public List<Visits> getVisits() {
-    // return visits;
-    // }
-    //
-    // public void setVisits(List<Visits> visits) {
-    // this.visits = visits;
-    // }
+     public void setAppointments(List<Appointments> appointments) {
+     this.appointments = appointments;
+     }
 
-    //
-    // public List<Vaccinations> getVaccinations() {
-    // return vaccinations;
-    // }
-    //
-    // public void setVaccinations(List<Vaccinations> vaccinations) {
-    // this.vaccinations = vaccinations;
-    // }
+     public List<Visits> getVisits() {
+     return visits;
+     }
+
+     public void setVisits(List<Visits> visits) {
+     this.visits = visits;
+     }
+
+     public List<Vaccinations> getVaccinations() {
+     return vaccinations;
+     }
+
+     public void setVaccinations(List<Vaccinations> vaccinations) {
+     this.vaccinations = vaccinations;
+     }
 }
